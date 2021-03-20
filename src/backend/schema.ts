@@ -2,12 +2,14 @@ import * as path from "path";
 
 import * as NexusSchema from "nexus";
 import { nexusPrisma } from "nexus-plugin-prisma";
+import { applyMiddleware } from "graphql-middleware";
 
 import * as Types from "./types";
 import * as Mutations from "./mutations";
 import * as Queries from "./queries";
+import { permissions } from "./permissions";
 
-export default NexusSchema.makeSchema({
+const schema = NexusSchema.makeSchema({
   types: [Types, Mutations, Queries],
   plugins: [
     nexusPrisma({
@@ -33,3 +35,5 @@ export default NexusSchema.makeSchema({
     ],
   },
 });
+
+export default applyMiddleware(schema, permissions);
