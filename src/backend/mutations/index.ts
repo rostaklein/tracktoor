@@ -1,23 +1,45 @@
 import { mutationType } from "nexus";
 
-export * from "./auth/login";
+import { createdBy } from "./computedInputs";
 
-export const customers = mutationType({
+export const mutations = mutationType({
   definition(t) {
+    // CUSTOMERS
     t.crud.createOneCustomer({
       computedInputs: {
-        createdBy: async ({ ctx }) => {
-          const currentUser = await ctx.user.getCurrentUser();
-
-          return {
-            connect: {
-              id: currentUser.id,
-            },
-          };
-        },
+        createdBy,
       },
     });
     t.crud.updateOneCustomer();
     t.crud.deleteOneCustomer();
+
+    // COMMODITIES
+    t.crud.createOneCommodity({
+      computedInputs: {
+        createdBy,
+      },
+    });
+    t.crud.updateOneCommodity();
+    t.crud.deleteOneCommodity();
+
+    // ORDERS
+    t.crud.createOneOrder({
+      computedInputs: {
+        createdBy,
+      },
+    });
+    t.crud.updateOneOrder();
+    t.crud.deleteOneOrder();
+
+    // BATCHES
+    t.crud.createOneBatch({
+      computedInputs: {
+        createdBy,
+      },
+    });
+    t.crud.updateOneBatch();
+    t.crud.deleteOneBatch();
   },
 });
+
+export { Login } from "./auth/login";
