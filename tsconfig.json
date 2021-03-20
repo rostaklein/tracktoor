@@ -18,10 +18,10 @@
       /* Specify module resolution strategy */
       "moduleResolution": "node",
       /* Base directory to resolve non-absolute module names */
-      "baseUrl": "./src",
+      "baseUrl": ".",
       /* Maps imports to locations - e.g. ~models will go to ./src/models */
       "paths": {
-        "~/*": [ "./src/*" ]
+        "~*": ["./src/*"]
       },
       /* allow import React instead of import * as React */
       "allowSyntheticDefaultImports": true,
