@@ -13,6 +13,7 @@ type Batch {
   identifier: String!
   name: String
   note: String
+  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
 }
 
 input BatchCreateInput {
@@ -929,7 +930,15 @@ input OrderWhereUniqueInput {
 }
 
 type Query {
+  batch(where: BatchWhereUniqueInput!): Batch
+  batches(after: BatchWhereUniqueInput, before: BatchWhereUniqueInput, first: Int, last: Int): [Batch!]!
+  commodities(after: CommodityWhereUniqueInput, before: CommodityWhereUniqueInput, first: Int, last: Int): [Commodity!]!
+  commodity(where: CommodityWhereUniqueInput!): Commodity
+  customer(where: CustomerWhereUniqueInput!): Customer
+  customers(after: CustomerWhereUniqueInput, before: CustomerWhereUniqueInput, first: Int, last: Int): [Customer!]!
   me: User
+  order(where: OrderWhereUniqueInput!): Order
+  orders(after: OrderWhereUniqueInput, before: OrderWhereUniqueInput, first: Int, last: Int): [Order!]!
 }
 
 enum QueryMode {

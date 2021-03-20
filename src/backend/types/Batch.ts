@@ -8,5 +8,6 @@ export const Batch = objectType({
     t.model.name();
     t.model.note();
     t.model.createdBy();
+    t.model.Order({ alias: "orders" });
   },
 });
