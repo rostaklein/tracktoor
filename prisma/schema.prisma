@@ -10,28 +10,56 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-}
-
-model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
-}
-
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  posts   Post[]
-  profile Profile?
+  id       Int     @id @default(autoincrement())
+  username String  @unique
+  name     String?
+  password String
+  active   Boolean @default(true)
+}
+
+model Customer {
+  id                 Int      @id @default(autoincrement())
+  personalIdentifier String   @unique
+  name               String
+  fbProfileUrl       String?
+  note               String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  Order              Order[]
+}
+
+model Commodity {
+  id          Int      @id @default(autoincrement())
+  name        String
+  photoUrl    String?
+  price       Int
+  description String?
+  note        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  Order       Order?   @relation(fields: [orderId], references: [id])
+  orderId     Int?
+}
+
+model Order {
+  id         Int         @id @default(autoincrement())
+  customer   Customer    @relation(fields: [customerId], references: [id])
+  items      Commodity[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  customerId Int
+  batch      Batch       @relation(fields: [batchId], references: [id])
+  batchId    Int
+  paid       Boolean
+  extraCost  Int
+  note       String?
+}
+
+model Batch {
+  id         Int     @id @default(autoincrement())
+  identifier String  @unique
+  name       String?
+  Order      Order[]
+  note       String?
 }
