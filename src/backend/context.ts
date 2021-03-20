@@ -7,7 +7,7 @@ const prisma = new PrismaClient({ log: ["query", "info", "warn"] });
 
 export type UserDetails = {
   id: number;
-  email: string;
+  username: string;
 };
 
 export type UserContext = {
