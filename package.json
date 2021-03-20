@@ -7,6 +7,7 @@
     "start": "parcel src/index.html --open",
     "build": "parcel build src/index.html --no-source-maps",
     "clean": "rimraf ./dist",
+    "generate:nexus": "NODE_ENV=development ts-node --transpile-only src/backend/schema",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npm run lint:tsc && npm run lint:eslint",
     "lint:tsc": "tsc",
@@ -36,6 +37,9 @@
     "@prisma/client": "^2.19.0",
     "@types/jest": "^26.0.21",
     "@vercel/node": "^1.9.1",
+    "graphql": "^15.5.0",
+    "nexus": "^1.0.0",
+    "nexus-plugin-prisma": "^0.32.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }

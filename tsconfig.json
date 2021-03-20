@@ -3,7 +3,7 @@
       /* Specify ECMAScript target version */
       "target": "es5",
       /* Specify module code generation */
-      "module": "esnext",
+      "module": "commonjs",
       /* Specify library files to be included in the compilation. */
       "lib": [
         "ESNext",
@@ -21,7 +21,7 @@
       "baseUrl": "./src",
       /* Maps imports to locations - e.g. ~models will go to ./src/models */
       "paths": {
-        "~/*": [ "./*" ]
+        "~/*": [ "./src/*" ]
       },
       /* List of folders to include type definitions from */
       "typeRoots": [
@@ -31,8 +31,10 @@
       "allowSyntheticDefaultImports": true,
       /*  Emit interop between CommonJS and ES modules */
       "esModuleInterop": true,
+      "rootDir": "."
     },
     "include": [
       "src/**/*"
-    ]
+    ],
+    "exclude": ["prisma/**/*"]
   }
