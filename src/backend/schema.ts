@@ -3,10 +3,12 @@ import * as path from "path";
 import * as NexusSchema from "nexus";
 import { nexusPrisma } from "nexus-plugin-prisma";
 
-import * as types from "./types";
+import * as Types from "./types";
+import * as Mutations from "./mutations";
+import * as Queries from "./queries";
 
 export default NexusSchema.makeSchema({
-  types,
+  types: [Types, Mutations, Queries],
   plugins: [
     nexusPrisma({
       experimentalCRUD: true,

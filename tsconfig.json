@@ -23,10 +23,6 @@
       "paths": {
         "~/*": [ "./src/*" ]
       },
-      /* List of folders to include type definitions from */
-      "typeRoots": [
-        "node_modules/@types"
-      ],
       /* allow import React instead of import * as React */
       "allowSyntheticDefaultImports": true,
       /*  Emit interop between CommonJS and ES modules */
