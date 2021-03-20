@@ -11,11 +11,15 @@ generator client {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  username String  @unique
-  name     String?
-  password String
-  active   Boolean @default(true)
+  id                 Int         @id @default(autoincrement())
+  username           String      @unique
+  name               String?
+  password           String
+  active             Boolean     @default(true)
+  createdCustomers   Customer[]
+  createdCommodities Commodity[]
+  createdOrders      Order[]
+  createdBatches     Batch[]
 }
 
 model Customer {
@@ -26,7 +30,9 @@ model Customer {
   note               String?
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
-  Order              Order[]
+  orders             Order[]
+  createdBy          User     @relation(fields: [userId], references: [id])
+  userId             Int
 }
 
 model Commodity {
@@ -38,8 +44,9 @@ model Commodity {
   note        String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  Order       Order?   @relation(fields: [orderId], references: [id])
-  orderId     Int?
+  orders      Order[]
+  createdBy   User     @relation(fields: [userId], references: [id])
+  userId      Int
 }
 
 model Order {
@@ -54,6 +61,8 @@ model Order {
   paid       Boolean
   extraCost  Int
   note       String?
+  createdBy  User        @relation(fields: [userId], references: [id])
+  userId     Int
 }
 
 model Batch {
@@ -62,4 +71,6 @@ model Batch {
   name       String?
   Order      Order[]
   note       String?
+  createdBy  User    @relation(fields: [userId], references: [id])
+  userId     Int
 }
