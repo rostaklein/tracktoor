@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import {
+  CalendarOutlined,
   PlusCircleOutlined,
   FileSearchOutlined,
   UserAddOutlined,
@@ -36,6 +37,13 @@ export const MainMenu: React.FC = () => {
   const { t } = useTranslation();
   return (
     <StyledMenu>
+      <li>
+        <LinkItem
+          icon={<CalendarOutlined />}
+          name={t("Batches")}
+          to={"/batches"}
+        />
+      </li>
       <li>
         <CategoryName>{t("Commodities")}</CategoryName>
         <LinkItem

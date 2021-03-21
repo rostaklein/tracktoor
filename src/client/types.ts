@@ -54,6 +54,33 @@ export interface MeQuery {
 // @generated
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL query operation: GetAllBatches
+// ====================================================
+
+export interface GetAllBatches_batches_createdBy {
+  __typename: "User";
+  name: string | null;
+}
+
+export interface GetAllBatches_batches {
+  __typename: "Batch";
+  id: number;
+  identifier: string;
+  name: string | null;
+  note: string | null;
+  createdBy: GetAllBatches_batches_createdBy;
+}
+
+export interface GetAllBatches {
+  batches: GetAllBatches_batches[];
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================

@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 
 import { LanguageSwitch } from "../LanguageSwitch";
 import { MainMenu } from "../MainMenu";
+import { ListBatches } from "../Batches";
 
 import * as S from "./styles";
 import { Logout } from "./components/Logout";
@@ -25,6 +26,11 @@ export const MainWrapper: React.FC = () => {
   const location = useLocation();
 
   const routes: RouteConfig[] = [
+    {
+      path: "/batches",
+      title: t("Batches"),
+      Component: <ListBatches />,
+    },
     {
       path: "/customers/new",
       title: t("Add customer"),

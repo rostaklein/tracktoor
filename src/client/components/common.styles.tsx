@@ -1,5 +1,5 @@
 import React from "react";
-import { Spin } from "antd";
+import { Input, Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
@@ -61,3 +61,14 @@ export const Colors = {
 
   WHITE: "#FFFFFF",
 };
+
+export const StyledTableWrapper = styled.div`
+  padding: 0 25px;
+  .ant-table-thead > tr > th {
+    background-color: ${Colors.LIGHT_GRAY5};
+  }
+`;
+
+export const StyledSearch = styled(Input.Search)`
+  margin-bottom: 15px;
+`;
