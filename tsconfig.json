@@ -27,7 +27,8 @@
       "allowSyntheticDefaultImports": true,
       /*  Emit interop between CommonJS and ES modules */
       "esModuleInterop": true,
-      "rootDir": "."
+      "rootDir": ".",
+      "resolveJsonModule": true,
     },
     "include": [
       "src/**/*"

@@ -1,0 +1,11 @@
+{
+  "inactivity_logged_out": "inactivity_logged_out",
+  "Could not connect to the backend server": "Could not connect to the backend server",
+  "password_required": "password_required",
+  "username_required": "username_required",
+  "user_not_found": "user_not_found",
+  "invalid_password": "invalid_password",
+  "Username": "Username",
+  "Password": "Password",
+  "Log In": "Log In"
+}

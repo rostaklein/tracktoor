@@ -3,6 +3,8 @@ import { Button } from "antd";
 import React, { useState } from "react";
 import { render } from "react-dom";
 
+import "./i18n";
+
 import { client } from "./ApolloClient";
 import { AuthWrapper } from "./components/AuthWrapper";
 import { AppContextProvider } from "./context/AppContext";

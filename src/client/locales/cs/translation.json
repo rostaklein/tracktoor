@@ -1,0 +1,11 @@
+{
+  "inactivity_logged_out": "Uzivatel odhlasen z duvodu neaktivity",
+  "Could not connect to the backend server": "Nepodarilo se pripojit k serveru",
+  "password_required": "Nutno zadat heslo",
+  "username_required": "Nutno zadat uzivatelske jmeno",
+  "user_not_found": "Uzivatel nenalezen",
+  "invalid_password": "Nespravne heslo",
+  "Username": "Uzivatelske jmeno",
+  "Password": "Heslo",
+  "Log In": "Prihlasit se"
+}
