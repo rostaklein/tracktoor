@@ -7,5 +7,12 @@
   "invalid_password": "Nespravne heslo",
   "Username": "Uzivatelske jmeno",
   "Password": "Heslo",
-  "Log In": "Prihlasit se"
+  "Log In": "Prihlasit se",
+  "Commodities": "Commodities",
+  "Add commodity": "Add commodity",
+  "List commodities": "List commodities",
+  "Customers": "Customers",
+  "Add customer": "Add customer",
+  "Log Out": "Log Out",
+  "Customer detail": "Customer detail"
 }

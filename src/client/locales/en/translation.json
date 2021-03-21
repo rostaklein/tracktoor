@@ -7,5 +7,12 @@
   "invalid_password": "invalid_password",
   "Username": "Username",
   "Password": "Password",
-  "Log In": "Log In"
+  "Log In": "Log In",
+  "Commodities": "Commodities",
+  "Add commodity": "Add commodity",
+  "List commodities": "List commodities",
+  "Customers": "Customers",
+  "Add customer": "Add customer",
+  "Log Out": "Log Out",
+  "Customer detail": "Customer detail"
 }

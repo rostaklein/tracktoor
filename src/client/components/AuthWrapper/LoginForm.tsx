@@ -14,6 +14,7 @@ import * as S from "./LoginForm.styles";
 
 import { useAppDispatch } from "~client/context/AppContext";
 import { LoginMutation, LoginMutationVariables } from "~client/types";
+import LogoImage from "~client/images/tracktoor_logo.svg";
 
 type FormValues = {
   username: string;
@@ -83,6 +84,7 @@ export const LoginForm: React.FC = () => {
   return (
     <CenteredWrapper>
       <S.LoginWrapper onSubmit={handleSubmit}>
+        <S.Logo src={LogoImage} />
         <S.FormItemStyled
           validateStatus={touched.username && errors.username ? "error" : ""}
           help={touched.username && errors.username}
