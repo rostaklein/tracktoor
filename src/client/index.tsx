@@ -24,4 +24,8 @@ const Application: React.FC<{}> = () => {
   );
 };
 
+if (module.hot) {
+  module.hot.accept();
+}
+
 render(<Application />, document.getElementById("root"));
