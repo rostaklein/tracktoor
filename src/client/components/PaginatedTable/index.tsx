@@ -27,7 +27,6 @@ interface Record {
 export function PaginatedTable<T extends Record>(props: Props<T>) {
   const { t } = useTranslation();
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
-  const [selectedItems, setSelectedItems] = useState<(string | number)[]>([]);
 
   const pagination: TablePaginationConfig = {
     current: currentPageNumber,
@@ -46,13 +45,6 @@ export function PaginatedTable<T extends Record>(props: Props<T>) {
         props.onPaginationChange(newPageNumber);
       }
     },
-  };
-
-  const selectHandler = (id: string | number, isSelected: boolean) => {
-    if (isSelected) {
-      return setSelectedItems([...selectedItems, id]);
-    }
-    setSelectedItems(selectedItems.filter((currentId) => currentId !== id));
   };
 
   const searchSubmitHandler = (searchValue: string) => {
@@ -82,13 +74,6 @@ export function PaginatedTable<T extends Record>(props: Props<T>) {
         loading={props.loading}
         rowKey={(record) => record.id}
         size="middle"
-        rowSelection={{
-          onSelect: ({ id }, isSelected) => selectHandler(id, isSelected),
-          selectedRowKeys: selectedItems,
-          onSelectAll: (_, selectedRows) => {
-            setSelectedItems(selectedRows.map(({ id }) => id));
-          },
-        }}
         locale={{
           emptyText: (
             <Empty
