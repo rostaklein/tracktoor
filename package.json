@@ -2,7 +2,6 @@
   "name": "tracktoor",
   "version": "1.0.0",
   "description": "Order tracker fullstack app",
-  "main": "index.html",
   "scripts": {
     "start": "parcel serve ./src/index.html",
     "build": "parcel build ./src/index.html --dist-dir ./dist",
@@ -22,6 +21,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "targets": {
+    "app": {
+      "engines": {
+        "browsers": "> 0.25%"
+      },
+      "distDir": "dist"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
