@@ -5,11 +5,10 @@ import { useTranslation } from "react-i18next";
 import { LanguageSwitch } from "../LanguageSwitch";
 import { MainMenu } from "../MainMenu";
 import { CenteredSpinner } from "../common.styles";
+import LogoImage from "../../images/tracktoor_logo.svg";
 
 import * as S from "./styles";
 import { Logout } from "./components/Logout";
-
-import LogoImage from "~client/images/tracktoor_logo.svg";
 
 const ListBatches = lazy(() => import("../Batches"));
 
