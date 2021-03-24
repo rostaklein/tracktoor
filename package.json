@@ -10,7 +10,7 @@
     "postinstall": "npm run generate",
     "generate": "npm run generate:prisma && npm run generate:nexus && npm run generate:fe-types",
     "generate:prisma": "prisma generate",
-    "generate:nexus": "NODE_ENV=development ts-node --transpile-only src/backend/schema",
+    "generate:nexus": "NODE_ENV=development ts-node -P nexus.tsconfig.json --transpile-only src/backend/schema",
     "generate:fe-types": "apollo client:codegen ./src/client/types.ts --outputFlat --addTypename --localSchemaFile=./src/schema.graphql --target=typescript",
     "extract:translations": "i18next",
     "test": "echo \"Error: no test specified\" && exit 1",
