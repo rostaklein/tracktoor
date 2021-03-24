@@ -22,7 +22,7 @@ import {
   UpdateBatchVariables,
   DeleteBatch,
   DeleteBatchVariables,
-} from "~client/types";
+} from "~/src/client/types";
 
 const getColumns = (
   t: TFunction,

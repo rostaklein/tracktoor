@@ -1,11 +1,11 @@
 import React, { useEffect, Suspense, LazyExoticComponent, lazy } from "react";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import LogoImage from "url:~/src/client/images/tracktoor_logo.svg";
 
 import { LanguageSwitch } from "../LanguageSwitch";
 import { MainMenu } from "../MainMenu";
 import { CenteredSpinner } from "../common.styles";
-import LogoImage from "../../images/tracktoor_logo.svg";
 
 import * as S from "./styles";
 import { Logout } from "./components/Logout";

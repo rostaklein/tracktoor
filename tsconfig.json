@@ -21,7 +21,7 @@
       "baseUrl": ".",
       /* Maps imports to locations - e.g. ~models will go to ./src/models */
       "paths": {
-        "~*": ["./src/*"]
+        "~*": ["./*"],
       },
       /* allow import React instead of import * as React */
       "allowSyntheticDefaultImports": true,
@@ -29,6 +29,7 @@
       "esModuleInterop": true,
       "rootDir": ".",
       "resolveJsonModule": true,
+      "isolatedModules": true
     },
     "include": [
       "src/**/*"

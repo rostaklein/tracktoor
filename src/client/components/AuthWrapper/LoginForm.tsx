@@ -5,6 +5,7 @@ import { ApolloError } from "apollo-client";
 import { useTranslation } from "react-i18next";
 import { LockFilled, LoginOutlined, UserOutlined } from "@ant-design/icons";
 import { Input, Button } from "antd";
+import LogoImage from "url:~/src/client/images/tracktoor_logo.svg";
 
 import { CenteredWrapper } from "../common.styles";
 import { LanguageSwitch } from "../LanguageSwitch";
@@ -12,9 +13,8 @@ import { LanguageSwitch } from "../LanguageSwitch";
 import { LOGIN_MUTATION } from "./queries";
 import * as S from "./LoginForm.styles";
 
-import { useAppDispatch } from "~client/context/AppContext";
-import { LoginMutation, LoginMutationVariables } from "~client/types";
-import LogoImage from "~client/images/tracktoor_logo.svg";
+import { useAppDispatch } from "~/src/client/context/AppContext";
+import { LoginMutation, LoginMutationVariables } from "~/src/client/types";
 
 type FormValues = {
   username: string;

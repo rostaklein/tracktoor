@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { FileOutlined, NumberOutlined } from "@ant-design/icons";
 import { Row, Col, Button } from "antd";
 
-import { FormInput, StyledForm } from "~client/components/Form";
+import { FormInput, StyledForm } from "~/src/client/components/Form";
 
 export type FormValues = {
   identifier: string | null;

@@ -11,7 +11,7 @@ import { CenteredSpinner } from "../common.styles";
 import { ME_QUERY } from "./queries";
 import { LoginForm } from "./LoginForm";
 
-import { MeQuery } from "~client/types";
+import { MeQuery } from "~/src/client/types";
 
 const isBackendError = (error?: ApolloError) => {
   return (

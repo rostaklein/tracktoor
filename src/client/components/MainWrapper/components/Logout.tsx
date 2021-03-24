@@ -3,7 +3,7 @@ import { LogoutOutlined } from "@ant-design/icons";
 import { Button, Tooltip } from "antd";
 import { useTranslation } from "react-i18next";
 
-import { useAppDispatch, useAppState } from "~client/context/AppContext";
+import { useAppDispatch, useAppState } from "~/src/client/context/AppContext";
 
 export const Logout: React.FC = () => {
   const dispatch = useAppDispatch();
