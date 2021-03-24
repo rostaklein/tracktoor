@@ -1,24 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense, LazyExoticComponent, lazy } from "react";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// import { NewCustomer } from "../NewCustomer/NewCustomer";
-// import { ListCustomers } from "../ListCustomers/ListCustomers";
-// import { DetailCustomer } from "../DetailCustomer/DetailCustomer";
-
 import { LanguageSwitch } from "../LanguageSwitch";
 import { MainMenu } from "../MainMenu";
-import { ListBatches } from "../Batches";
+import { CenteredSpinner } from "../common.styles";
 
 import * as S from "./styles";
 import { Logout } from "./components/Logout";
 
 import LogoImage from "~client/images/tracktoor_logo.svg";
 
+const ListBatches = lazy(() => import("../Batches"));
+
 type RouteConfig = {
   path: string;
   title: string;
-  Component?: React.ReactElement;
+  Component?: LazyExoticComponent<React.FC<{}>>;
 };
 
 export const MainWrapper: React.FC = () => {
@@ -29,22 +27,19 @@ export const MainWrapper: React.FC = () => {
     {
       path: "/batches",
       title: t("Batches"),
-      Component: <ListBatches />,
+      Component: ListBatches,
     },
     {
       path: "/customers/new",
       title: t("Add customer"),
-      Component: <>Add new</>,
     },
     {
       path: "/customers/list",
       title: t("Customers"),
-      Component: <>List</>,
     },
     {
       path: "/customers/:id",
       title: t("Customer detail"),
-      Component: <>Detail</>,
     },
   ];
 
@@ -72,14 +67,14 @@ export const MainWrapper: React.FC = () => {
           <Logout />
         </S.StyledNavbar>
         <S.Content>
-          <Switch>
-            {routes.map(({ path, title, Component }) => (
-              <Route path={path} key={path}>
-                {Component ? Component : <S.PageTitle>{title}</S.PageTitle>}
-              </Route>
-            ))}
-            <Redirect from="/" to="/orders/list" />
-          </Switch>
+          <Suspense fallback={<CenteredSpinner />}>
+            <Switch>
+              {routes.map(({ path, Component }) => (
+                <Route path={path} key={path} component={Component} />
+              ))}
+              <Redirect from="/" to="/orders/list" />
+            </Switch>
+          </Suspense>
         </S.Content>
       </S.Main>
     </S.BodyWrapper>

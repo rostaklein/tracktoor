@@ -147,3 +147,5 @@ export const ListBatches: React.FC = () => {
     </>
   );
 };
+
+export default ListBatches;

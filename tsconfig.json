@@ -1,16 +1,16 @@
 {
     "compilerOptions": {
       /* Specify ECMAScript target version */
-      "target": "es5",
+      "target": "es2018",
       /* Specify module code generation */
-      "module": "commonjs",
+      "module": "esnext",
       /* Specify library files to be included in the compilation. */
       "lib": [
         "ESNext",
         "DOM"
       ],
       /* Specify JSX code generation */
-      "jsx": "react",
+      "jsx": "preserve",
       /* Generate corresponding .map files */
       "sourceMap": true,
       /* Enable all strict type-checking options */
