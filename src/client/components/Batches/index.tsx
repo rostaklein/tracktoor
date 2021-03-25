@@ -2,12 +2,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useMutation, useQuery } from "react-apollo";
-import { TFunction } from "i18next";
-import { ColumnProps } from "antd/lib/table";
-import { Button, Popconfirm } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
 
-import { PaginatedTable } from "../PaginatedTable";
 import { PageTitle } from "../MainWrapper/styles";
 
 import { Add, Delete, GetAll, Update } from "./queries";
@@ -23,52 +18,6 @@ import {
   DeleteBatch,
   DeleteBatchVariables,
 } from "~/src/client/types";
-
-const getColumns = (
-  t: TFunction,
-  onDelete: (id: number) => void
-): ColumnProps<GetAllBatches_batches>[] => [
-  {
-    title: t("Id"),
-    dataIndex: "id",
-    width: 80,
-  },
-  {
-    title: t("Batch identifier"),
-    ellipsis: true,
-    dataIndex: "identifier",
-  },
-  {
-    title: t("Batch name"),
-    dataIndex: "name",
-  },
-  {
-    title: t("Note"),
-    width: 200,
-    ellipsis: true,
-    dataIndex: "note",
-  },
-  {
-    title: t("Created by"),
-    ellipsis: true,
-    dataIndex: "createdBy.name",
-  },
-  {
-    key: "actions",
-    width: 40,
-    render: (_, record, i) => {
-      return (
-        <Popconfirm
-          placement="topRight"
-          onConfirm={() => onDelete(record.id)}
-          title={t("Do you really want to remove this item?")}
-        >
-          <Button icon={<DeleteOutlined />} type="link" />
-        </Popconfirm>
-      );
-    },
-  },
-];
 
 export const ListBatches: React.FC = () => {
   const { t } = useTranslation();
@@ -133,17 +82,9 @@ export const ListBatches: React.FC = () => {
         submit={{ loading: addLoading, text: t("Add") }}
       />
       <PageTitle>{t("List batches")}</PageTitle>
-      <PaginatedTable<GetAllBatches_batches>
-        columns={getColumns(t, onDelete)}
-        records={items}
-        totalCount={data?.batches.length ?? 0}
-        loading={loading}
-        pageSize={50}
-        translations={{
-          emptyResult: t("No batches yet"),
-          search: t("Search batches"),
-        }}
-      />
+      {items.map((item) => (
+        <div key={item.id}>{JSON.stringify(item)}</div>
+      ))}
     </>
   );
 };

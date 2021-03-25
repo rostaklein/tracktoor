@@ -1,9 +1,7 @@
 import React from "react";
 import { useField } from "formik";
-import { Input } from "antd";
-import { InputProps } from "antd/lib/input";
 import styled from "styled-components";
-import { Divider, Form } from "antd";
+import { Divider, FormGroup, InputGroup } from "@blueprintjs/core";
 
 import { Colors } from "../common.styles";
 
@@ -11,14 +9,9 @@ export const StyledForm = styled.form`
   padding: 15px 35px;
 `;
 
-export const StyledDivider = styled(Divider)`
-  &.ant-divider-with-text-left {
-    font-size: 14px;
-    margin: 8px 0;
-  }
-`;
+export const StyledDivider = styled(Divider)``;
 
-export const StyledFormItem = styled(Form.Item)`
+export const StyledFormItem = styled(FormGroup)`
   margin-bottom: 0px;
   line-height: normal;
   display: flex;
@@ -49,15 +42,13 @@ export const StyledFormLabel = styled.label`
 type FieldProps = {
   name: string;
   label?: string;
-  icon?: React.ReactNode;
   withLabel?: boolean;
   type?: "input" | "textarea";
 };
 
-type Props = FieldProps & InputProps;
+type Props = FieldProps & Partial<InputGroup>;
 
 export const FormInput: React.FC<Props> = ({
-  icon,
   label,
   name,
   withLabel,
@@ -65,26 +56,18 @@ export const FormInput: React.FC<Props> = ({
 }) => {
   const [{ value, onChange }, { touched, error }] = useField(name);
   const errorMessage = touched && error;
-  const status = errorMessage ? "error" : "";
-  const getValue = () => {
-    if (typeof value === "string") {
-      return value;
-    }
-    if (typeof value === "number") {
-      return value;
-    }
-    return "";
-  };
   return (
-    <StyledFormItem validateStatus={status} help={errorMessage}>
+    <StyledFormItem
+      helperText={errorMessage}
+      intent={errorMessage ? "danger" : "none"}
+    >
       <>
         {withLabel && <StyledLabel>{label}</StyledLabel>}
-        <Input
-          prefix={icon && icon}
+        <InputGroup
           placeholder={label}
           name={name}
           onChange={onChange}
-          value={getValue()}
+          value={value}
           data-test-id={`form-item-${name}`}
           {...rest}
         />

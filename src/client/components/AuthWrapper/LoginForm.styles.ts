@@ -1,5 +1,5 @@
+import { FormGroup } from "@blueprintjs/core";
 import styled from "styled-components";
-import { Form } from "antd";
 
 export const LoginWrapper = styled.form`
   width: 240px;
@@ -8,7 +8,7 @@ export const LoginWrapper = styled.form`
   flex-direction: column;
 `;
 
-export const FormItemStyled = styled(Form.Item)`
+export const FormItemStyled = styled(FormGroup)`
   margin-bottom: 5px;
 `;
 

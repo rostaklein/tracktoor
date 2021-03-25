@@ -1,6 +1,5 @@
+import { Button, Tooltip } from "@blueprintjs/core";
 import React from "react";
-import { LogoutOutlined } from "@ant-design/icons";
-import { Button, Tooltip } from "antd";
 import { useTranslation } from "react-i18next";
 
 import { useAppDispatch, useAppState } from "~/src/client/context/AppContext";
@@ -17,13 +16,8 @@ export const Logout: React.FC = () => {
   return (
     <>
       {currentUser?.name}
-      <Tooltip placement="bottomRight" title={t("Log Out")}>
-        <Button
-          onClick={onLogoutClick}
-          icon={<LogoutOutlined />}
-          type="link"
-          shape="circle"
-        />
+      <Tooltip placement="bottom-end" content={t("Log Out")}>
+        <Button onClick={onLogoutClick} icon="log-out" />
       </Tooltip>
     </>
   );

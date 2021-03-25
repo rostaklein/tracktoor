@@ -10,12 +10,9 @@
       "@babel/preset-react"
     ],
     "plugins": [
-      [
-        "import",
+      ["@babel/plugin-transform-runtime",
         {
-          "libraryName": "antd",
-          "libraryDirectory": "es",
-          "style": "css"
+          "regenerator": true
         }
       ]
     ]

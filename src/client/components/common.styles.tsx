@@ -1,7 +1,6 @@
 import React from "react";
-import { Input, Spin } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import { Spinner } from "@blueprintjs/core";
 
 export const CenteredWrapper = styled.div`
   padding: 30px 25px;
@@ -14,7 +13,7 @@ export const CenteredWrapper = styled.div`
 
 export const CenteredSpinner: React.FC = () => (
   <CenteredWrapper style={{ background: "transparent" }}>
-    <Spin indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />} />
+    <Spinner />
   </CenteredWrapper>
 );
 
@@ -67,8 +66,4 @@ export const StyledTableWrapper = styled.div`
   .ant-table-thead > tr > th {
     background-color: ${Colors.LIGHT_GRAY5};
   }
-`;
-
-export const StyledSearch = styled(Input.Search)`
-  margin-bottom: 15px;
 `;
