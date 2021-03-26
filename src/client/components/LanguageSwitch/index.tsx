@@ -1,6 +1,5 @@
+import { Button, ButtonGroup, Popover } from "@blueprintjs/core";
 import React, { useState } from "react";
-import { GlobalOutlined } from "@ant-design/icons";
-import { Popover, Button } from "antd";
 import { useTranslation } from "react-i18next";
 
 export const LanguageSwitch: React.FC = () => {
@@ -14,7 +13,7 @@ export const LanguageSwitch: React.FC = () => {
   return (
     <Popover
       content={
-        <Button.Group>
+        <ButtonGroup>
           {[
             { code: "en", languageName: "English" },
             { code: "cs", languageName: "Čeština" },
@@ -27,14 +26,13 @@ export const LanguageSwitch: React.FC = () => {
               {languageName}
             </Button>
           ))}
-        </Button.Group>
+        </ButtonGroup>
       }
-      trigger="click"
       placement="bottom"
-      visible={isVisible}
-      onVisibleChange={setIsVisible}
+      isOpen={isVisible}
+      onInteraction={setIsVisible}
     >
-      <Button icon={<GlobalOutlined />} shape="circle" type="link" />
+      <Button icon="globe" minimal />
     </Popover>
   );
 };

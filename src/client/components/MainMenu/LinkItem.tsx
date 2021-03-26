@@ -25,13 +25,9 @@ const MenuLinkItem = styled(NavLink)<NavLinkProps<unknown>>`
     color: inherit;
     text-decoration: none;
   }
-  .anticon {
-    margin-right: 10px;
-  }
 `;
 
 interface Props {
-  icon: React.ReactNode;
   name: string;
   to: NavLinkProps<unknown>["to"];
 }

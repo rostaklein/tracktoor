@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 import { useQuery } from "react-apollo";
 import { useTranslation } from "react-i18next";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Alert, message } from "antd";
 import { ApolloError } from "apollo-client";
+import { Callout } from "@blueprintjs/core";
 
 import { useAppDispatch, useAppState } from "../../context/AppContext";
 import { CenteredSpinner } from "../common.styles";
@@ -11,7 +11,7 @@ import { CenteredSpinner } from "../common.styles";
 import { ME_QUERY } from "./queries";
 import { LoginForm } from "./LoginForm";
 
-import { MeQuery } from "~client/types";
+import { MeQuery } from "~/src/client/types";
 
 const isBackendError = (error?: ApolloError) => {
   return (
@@ -39,7 +39,7 @@ export const AuthWrapper: React.FC = ({ children }) => {
       const token = localStorage.getItem("auth-token");
       if (token && isNotAuthorizedError(error)) {
         localStorage.removeItem("auth-token");
-        message.error(t("inactivity_logged_out"));
+        // Toaster.create().show({ message: t("inactivity_logged_out") });
       }
     },
     onCompleted: (data) => {
@@ -65,13 +65,9 @@ export const AuthWrapper: React.FC = ({ children }) => {
     return (
       <Suspense fallback={<CenteredSpinner />}>
         {isBackendError(error) && (
-          <Alert
-            message={t("Could not connect to the backend server")}
-            type="error"
-            showIcon
-            banner
-            closable
-          />
+          <Callout intent="danger">
+            {t("Could not connect to the backend server")}
+          </Callout>
         )}
         <LoginForm />
       </Suspense>

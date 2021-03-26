@@ -1,6 +1,7 @@
 import React, { useEffect, Suspense, LazyExoticComponent, lazy } from "react";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import LogoImage from "url:~/src/client/images/tracktoor_logo.svg";
 
 import { LanguageSwitch } from "../LanguageSwitch";
 import { MainMenu } from "../MainMenu";
@@ -8,8 +9,6 @@ import { CenteredSpinner } from "../common.styles";
 
 import * as S from "./styles";
 import { Logout } from "./components/Logout";
-
-import LogoImage from "~client/images/tracktoor_logo.svg";
 
 const ListBatches = lazy(() => import("../Batches"));
 

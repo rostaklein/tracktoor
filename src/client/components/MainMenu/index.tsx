@@ -1,13 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import {
-  CalendarOutlined,
-  PlusCircleOutlined,
-  FileSearchOutlined,
-  UserAddOutlined,
-  TeamOutlined,
-} from "@ant-design/icons";
 
 import { Colors } from "../common.styles";
 
@@ -38,37 +31,17 @@ export const MainMenu: React.FC = () => {
   return (
     <StyledMenu>
       <li>
-        <LinkItem
-          icon={<CalendarOutlined />}
-          name={t("Batches")}
-          to={"/batches"}
-        />
+        <LinkItem name={t("Batches")} to={"/batches"} />
       </li>
       <li>
         <CategoryName>{t("Commodities")}</CategoryName>
-        <LinkItem
-          icon={<PlusCircleOutlined />}
-          name={t("Add commodity")}
-          to={"/commodity/new"}
-        />
-        <LinkItem
-          icon={<FileSearchOutlined />}
-          name={t("List commodities")}
-          to={"/commodity/list"}
-        />
+        <LinkItem name={t("Add commodity")} to={"/commodity/new"} />
+        <LinkItem name={t("List commodities")} to={"/commodity/list"} />
       </li>
       <li>
         <CategoryName>{t("Customers")}</CategoryName>
-        <LinkItem
-          icon={<UserAddOutlined />}
-          name={t("Add customer")}
-          to={"/customer/new"}
-        />
-        <LinkItem
-          icon={<TeamOutlined />}
-          name={t("Customers")}
-          to={"/customer/list"}
-        />
+        <LinkItem name={t("Add customer")} to={"/customer/new"} />
+        <LinkItem name={t("Customers")} to={"/customer/list"} />
       </li>
     </StyledMenu>
   );

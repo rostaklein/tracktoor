@@ -3,8 +3,8 @@ import { useMutation } from "react-apollo";
 import { useFormik, FormikErrors } from "formik";
 import { ApolloError } from "apollo-client";
 import { useTranslation } from "react-i18next";
-import { LockFilled, LoginOutlined, UserOutlined } from "@ant-design/icons";
-import { Input, Button } from "antd";
+import LogoImage from "url:~/src/client/images/tracktoor_logo.svg";
+import { Button, InputGroup } from "@blueprintjs/core";
 
 import { CenteredWrapper } from "../common.styles";
 import { LanguageSwitch } from "../LanguageSwitch";
@@ -12,9 +12,8 @@ import { LanguageSwitch } from "../LanguageSwitch";
 import { LOGIN_MUTATION } from "./queries";
 import * as S from "./LoginForm.styles";
 
-import { useAppDispatch } from "~client/context/AppContext";
-import { LoginMutation, LoginMutationVariables } from "~client/types";
-import LogoImage from "~client/images/tracktoor_logo.svg";
+import { useAppDispatch } from "~/src/client/context/AppContext";
+import { LoginMutation, LoginMutationVariables } from "~/src/client/types";
 
 type FormValues = {
   username: string;
@@ -89,8 +88,7 @@ export const LoginForm: React.FC = () => {
           validateStatus={touched.username && errors.username ? "error" : ""}
           help={touched.username && errors.username}
         >
-          <Input
-            prefix={<UserOutlined />}
+          <InputGroup
             placeholder={t("Username")}
             name="username"
             onChange={handleChange}
@@ -102,8 +100,7 @@ export const LoginForm: React.FC = () => {
           validateStatus={touched.password && errors.password ? "error" : ""}
           help={touched.password && errors.password}
         >
-          <Input
-            prefix={<LockFilled />}
+          <InputGroup
             placeholder={t("Password")}
             name="password"
             onChange={handleChange}
@@ -113,10 +110,10 @@ export const LoginForm: React.FC = () => {
           />
         </S.FormItemStyled>
         <Button
-          icon={<LoginOutlined />}
+          icon="log-in"
           loading={loading}
           disabled={!isValid}
-          htmlType="submit"
+          type="submit"
           data-test-id="login-submit-button"
         >
           {t("Log In")}

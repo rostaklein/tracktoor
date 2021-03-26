@@ -6,9 +6,10 @@ import "./i18n";
 
 import { client } from "./ApolloClient";
 import { AuthWrapper } from "./components/AuthWrapper";
-import "./style/index.less";
 import { MainWrapper } from "./components/MainWrapper";
 import { AppContextProvider } from "./context/AppContext";
+
+import "./style/index.css";
 
 const Application: React.FC<{}> = () => {
   return (
